@@ -13,11 +13,11 @@ void checkPot(){  //check potentiometer set
   val=analogRead(potentiometer); //0-1023 (1023=50:50)
   val=(int)((((float)alltimeperiod/1023)*val)/2); //values in val will be (0-alltimeperiod)/2
   delhi=val;
-    Serial.println(val);
+   // Serial.println(val);
   del=alltimeperiod-delhi; 
  // delhi=10; del=350;
- Serial.println(delhi);
- Serial.println(del);
+ //Serial.println(delhi);
+ //Serial.println(del);
   counter=0; 
 }
 
@@ -31,7 +31,7 @@ void setup() {
 pinMode(faze1,OUTPUT);
 pinMode(faze2,OUTPUT);
 pinMode(faze3,OUTPUT);
-Serial.begin(9600);
+//Serial.begin(9600);
 }
 
 void loop() {
