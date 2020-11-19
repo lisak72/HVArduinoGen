@@ -1,11 +1,22 @@
-int faze1=6;
-int faze2=5;
-int faze3=4;
-int del=300;
-int delhi=60;
+int faze1=6;  //first transistor output (gate)
+int faze2=5;  //second trasistor output
+int faze3=4;  //third transistor output
+int del=300;  //delay between gate up (time where all is down)
+int delhi=60; //delay -transistor up
+int alltimeperiod=360;
+int checkinterval=2000;
+int counter=checkinterval;
+
+void checkPot(){  //check potentiometer set
+  int val=analogRead(A1); //0-1024 (1024=50:50)
+  delhi=val/alltimeperiod;
+  del=alltimeperiod-delhi; 
+  counter=0; 
+}
 
 void delf(int dl){
   delayMicroseconds(dl);
+  counter++;
 }
 
 void setup() {
@@ -13,8 +24,6 @@ void setup() {
 pinMode(faze1,OUTPUT);
 pinMode(faze2,OUTPUT);
 pinMode(faze3,OUTPUT);
-
-
 
 }
 
@@ -32,6 +41,7 @@ void loop() {
   delf(delhi);
   digitalWrite(faze3, LOW);
   delf(del);
+  if(counter>checkinterval) checkPot();
   // put your main code here, to run repeatedly:
 
 }
