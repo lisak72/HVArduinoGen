@@ -29,7 +29,7 @@ pinMode(faze3,OUTPUT);
 }
 
 void loop() {
-
+  if(counter>checkinterval) checkPot();
   digitalWrite(faze1, HIGH);
   delf(delhi);
   digitalWrite(faze1, LOW);
@@ -42,7 +42,4 @@ void loop() {
   delf(delhi);
   digitalWrite(faze3, LOW);
   delf(del);
-  if(counter>checkinterval) checkPot();
-  // put your main code here, to run repeatedly:
-
-}
+} //end of loop
