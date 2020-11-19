@@ -8,8 +8,9 @@ int checkinterval=2000;
 int counter=checkinterval;
 
 void checkPot(){  //check potentiometer set
-  int val=analogRead(A1); //0-1024 (1024=50:50)
-  delhi=val/alltimeperiod;
+  int val=analogRead(A1); //0-1023 (1023=50:50)
+  val=(int)(((alltimeperiod/1023)*val)/2); //values in val will be (0-alltimeperiod)/2
+  delhi=val;
   del=alltimeperiod-delhi; 
   counter=0; 
 }
