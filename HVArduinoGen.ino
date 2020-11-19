@@ -4,14 +4,14 @@ int faze3=4;  //third transistor output
 int del=300;  //delay between gate up (time where all is down)
 int delhi=60; //delay -transistor up
 int alltimeperiod=360;
-int checkinterval=2000;
+int checkinterval=4000;
 int counter=checkinterval;
 int potentiometer=A3;
 
 void checkPot(){  //check potentiometer set
   int val=0;
   val=analogRead(potentiometer); //0-1023 (1023=50:50)
-  val=(int)((((float)alltimeperiod/1023)*val)/2); //values in val will be (0-alltimeperiod)/2
+  val=(int)((((float)alltimeperiod/1023)*val)/4); //values in val will be (0-alltimeperiod)/2
   delhi=val;
    // Serial.println(val);
   del=alltimeperiod-delhi; 
